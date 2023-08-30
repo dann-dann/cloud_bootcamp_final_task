@@ -92,3 +92,12 @@ resource "aws_instance" "daniils-final-instance" {
     Name = "daniils-final-instance"
   }
 }
+
+# Trick to save public ip address to inventory.ini
+resource "local_file" "inventory" {
+  depends_on = [aws_instance.daniils-final-instance]
+
+  # Merging first part with inventory_content variable
+  content = "[server]\n${aws_instance.daniils-final-instance.public_ip} ${var.inventory_content}" 
+  filename = var.inventory_filename
+}
