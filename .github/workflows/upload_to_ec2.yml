@@ -12,11 +12,6 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v2
 
-      - name: Set permissions on /var/www/html
-        run: |
-          ssh -i "${{ secrets.PRIVATE_KEY }}" ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo chown -R ubuntu:ubuntu /var/www/html"
-          ssh -i "${{ secrets.PRIVATE_KEY }}" ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo chmod -R 755 /var/www/html"
-
       - name: Deploy index.html to EC2 instance
         uses: easingthemes/ssh-deploy@main
         with:
@@ -25,3 +20,6 @@ jobs:
           REMOTE_USER: ubuntu
           SOURCE: index.html
           TARGET: /var/www/html
+          SCRIPT_BEFORE: |
+            sudo chown -R ubuntu:ubuntu /var/www/html
+            sudo chmod -R 755 /var/www/html
