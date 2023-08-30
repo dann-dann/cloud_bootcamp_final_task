@@ -14,8 +14,8 @@ jobs:
 
       - name: Set permissions on /var/www/html
         run: |
-          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo chown -R ubuntu:ubuntu /var/www/html"
-          ssh ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo chmod -R 755 /var/www/html"
+          ssh -i "${{ secrets.PRIVATE_KEY }}" ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo chown -R ubuntu:ubuntu /var/www/html"
+          ssh -i "${{ secrets.PRIVATE_KEY }}" ${{ secrets.REMOTE_USER }}@${{ secrets.REMOTE_HOST }} "sudo chmod -R 755 /var/www/html"
 
       - name: Deploy index.html to EC2 instance
         uses: easingthemes/ssh-deploy@main
