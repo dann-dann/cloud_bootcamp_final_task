@@ -14,7 +14,7 @@ provider "aws" {
          region = "eu-central-1"
  }
 
-# Creating security grouo
+# Creating security group
 resource "aws_security_group" "daniils-final-sg" {
   name        = "daniils-final-sg"
   description = "Security group for the bootcamp final task (Daniils)"
