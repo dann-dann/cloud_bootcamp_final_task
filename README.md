@@ -58,6 +58,10 @@ Once the deployment is complete, you will see information about the created EC2 
 
 
 # Ansible Part
+Navigate back to the main directory which contains **install_nginx.yml**
+```
+cd ..
+```
 
 ## Review Ansible Playbook
 Review **install_nginx.yml** Ansible playbook file to ensure it matches your desired Nginx installation and configuration.<br/><br/>
