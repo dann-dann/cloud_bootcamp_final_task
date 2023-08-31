@@ -68,7 +68,7 @@ This command will configure Nginx on your EC2 instance.<br/>
 ansible-playbook --inventory-file=<location_to_the_directory>/cloud_bootcamp_final_task/inventory.ini install_nginx.yml
 ```
 >**NOTE:** Replace **<location_to_the_directory>/cloud_bootcamp_final_task/inventory.ini** with the path to your inventory file if it's in a different location<br/><br/>
->**NOTE 2:** You may consider `chmod 600 <path_to_your_private_key/key.pem`
+>**NOTE 2:** You may consider `chmod 600 <path_to_your_private_key>/key.pem`
 <br/>
 
 # Github Actions Part
